@@ -6,89 +6,202 @@
 <title>Fuliza Limit Services</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f1f4f2;
-  color: #26352e;
+  background: #f5f7fa;
+  color: #25352f;
 }
+
 header {
+  background: #08704d;
+  color: white;
+  padding: 22px 15px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 25px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+header p {
+  color: #ffdc40;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.topbar {
   background: #075b43;
   color: white;
-  text-align: center;
-  padding: 28px 15px;
-}
-header h1 {
-  margin: 0;
-  font-size: 25px;
-}
-header p {
-  color: #f5d477;
+  padding: 17px;
+  font-size: 19px;
   font-weight: bold;
 }
+
 .container {
-  max-width: 750px;
-  margin: 25px auto;
-  padding: 15px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 22px 15px 100px;
 }
-.card {
-  background: white;
-  padding: 22px;
-  margin-bottom: 18px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px #00000012;
-}
-h2 {
-  color: #075b43;
-}
-.stage {
-  border-left: 5px solid #c69b32;
-  padding: 12px 15px;
-  margin: 15px 0;
-  background: #faf8f0;
-  border-radius: 6px;
-}
-.stage h3 {
-  margin: 0 0 8px;
-  color: #075b43;
-}
-.notice {
-  background: #edf3f7;
-  border-left: 4px solid #075b43;
-  padding: 14px;
-  border-radius: 5px;
+
+.intro {
+  text-align: center;
+  color: #606a72;
   line-height: 1.6;
+  margin: 10px 0 28px;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.limit-card {
+  background: white;
+  border: 2px solid #edf0f2;
+  border-radius: 25px;
+  padding: 35px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+  min-height: 190px;
+}
+
+.limit-card:hover {
+  border-color: #e5c82c;
+  transform: translateY(-3px);
+}
+
+.limit-card.selected {
+  border: 3px solid #e8ca24;
+  background: #fffef5;
+}
+
+.limit-card h2 {
+  color: #075b43;
+  font-size: 29px;
+  margin: 8px 0;
+}
+
+.limit-card p {
+  color: #899097;
+  margin: 8px 0;
+}
+
+.recommended {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f5d400;
+  color: #315c32;
+  border-radius: 25px;
+  padding: 9px 17px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.selection {
+  background: white;
+  border-radius: 15px;
+  padding: 22px;
+  text-align: center;
+  margin-top: 25px;
+  box-shadow: 0 3px 12px #00000010;
+}
+
+.selection h3 {
+  color: #075b43;
+}
+
 .whatsapp {
-  display: block;
-  position: fixed;
-  bottom: 20px;
-  right: 18px;
+  display: inline-block;
   background: #25D366;
   color: white;
-  padding: 15px 20px;
-  border-radius: 35px;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 3px 12px #0004;
-  z-index: 10;
+  padding: 15px 28px;
+  border-radius: 30px;
+  margin-top: 12px;
 }
+
 .whatsapp:hover {
   background: #128C7E;
 }
+
+.notice {
+  background: #eaf1f7;
+  border-left: 5px solid #075b43;
+  padding: 17px;
+  border-radius: 8px;
+  margin-top: 25px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.info {
+  background: white;
+  border-radius: 15px;
+  padding: 23px;
+  margin-top: 22px;
+  line-height: 1.6;
+}
+
+.info h3 {
+  color: #075b43;
+}
+
 footer {
-  background: #075b43;
+  background: #08704d;
   color: white;
   text-align: center;
   padding: 25px 10px;
-  margin-top: 30px;
-}
-.small {
   font-size: 13px;
-  line-height: 1.6;
+}
+
+.floating {
+  position: fixed;
+  bottom: 20px;
+  right: 17px;
+  background: #25D366;
+  color: white;
+  padding: 15px 20px;
+  text-decoration: none;
+  border-radius: 35px;
+  font-weight: bold;
+  box-shadow: 0 3px 12px #0005;
+  z-index: 10;
+}
+
+@media(max-width:650px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .limit-card {
+    padding: 30px 6px;
+    min-height: 155px;
+  }
+  .limit-card h2 {
+    font-size: 22px;
+  }
+  header h1 {
+    font-size: 21px;
+  }
+}
+
+@media(max-width:360px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -100,119 +213,142 @@ footer {
   <p>APPLICATION INFORMATION PORTAL</p>
 </header>
 
-<div class="container">
-
-  <div class="card">
-    <h2>Welcome</h2>
-    <p>
-      Welcome to Fuliza Limit Services.
-      Find useful information about Fuliza eligibility,
-      limit assessments and available assistance.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Understanding Fuliza Limit Stages</h2>
-
-    <div class="stage">
-      <h3>Stage 1: Initial Assessment</h3>
-      <p>
-        Your M-PESA account activity and eligibility
-        are assessed when determining your Fuliza limit.
-      </p>
-    </div>
-
-    <div class="stage">
-      <h3>Stage 2: Active M-PESA Usage</h3>
-      <p>
-        Consistent use of M-PESA and other Safaricom
-        services contributes to your customer activity history.
-      </p>
-    </div>
-
-    <div class="stage">
-      <h3>Stage 3: Repayment History</h3>
-      <p>
-        Timely repayment of Fuliza and other credit
-        facilities can contribute positively to your credit assessment.
-      </p>
-    </div>
-
-    <div class="stage">
-      <h3>Stage 4: Limit Review</h3>
-      <p>
-        The participating lending bank reviews your
-        credit profile and determines whether your limit
-        should be maintained, increased or adjusted.
-      </p>
-    </div>
-
-    <div class="notice">
-      <strong>Important:</strong>
-      These are explanatory stages, not official
-      Safaricom limit levels. There is no guaranteed
-      progression or fixed amount at each stage.
-      Only Safaricom and its lending partners determine
-      individual Fuliza limits.
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>How to Request a Limit Review</h2>
-    <p>Use the official M-PESA menu:</p>
-    <ol>
-      <li>Dial *334# on your Safaricom line.</li>
-      <li>Select option 00 for Fuliza M-PESA.</li>
-      <li>Choose Refresh My Limit if available.</li>
-      <li>Follow the instructions provided.</li>
-    </ol>
-    <p>
-      A review request does not guarantee an increase.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Official Assistance</h2>
-    <p>
-      For accurate information about your Fuliza limit,
-      eligibility and account, use official Safaricom
-      customer support channels.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Customer Support</h2>
-    <p>
-      Have a question? Contact our information support
-      through WhatsApp.
-    </p>
-    <p>
-      WhatsApp: +254 790 000 945
-    </p>
-  </div>
-
-  <div class="card small">
-    <strong>Disclaimer:</strong>
-    This is an independent information website and is
-    not an official Safaricom website. We cannot access,
-    approve, or manually increase customer Fuliza limits.
-    Never share your M-PESA PIN or OTP with anyone.
-    No payment guarantees a limit increase.
-  </div>
-
+<div class="topbar">
+  ← Select Desired Limit
 </div>
 
-<a class="whatsapp"
+<main class="container">
+
+  <div class="intro">
+    <strong>Explore Fuliza Limit Information</strong>
+    <p>
+      Select an illustrative target amount below to
+      learn more about Fuliza eligibility and official assistance.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <div class="limit-card" onclick="selectLimit('KSh 5,000', this)">
+      <h2>KSh 5,000</h2>
+      <p>Illustrative Target Limit</p>
+    </div>
+
+    <div class="limit-card" onclick="selectLimit('KSh 7,500', this)">
+      <h2>KSh 7,500</h2>
+      <p>Illustrative Target Limit</p>
+    </div>
+
+    <div class="limit-card selected" onclick="selectLimit('KSh 10,000', this)">
+      <div class="recommended">★ MOST POPULAR</div>
+      <h2>KSh 10,000</h2>
+      <p>Illustrative Target Limit</p>
+    </div>
+
+    <div class="limit-card" onclick="selectLimit('KSh 12,500', this)">
+      <h2>KSh 12,500</h2>
+      <p>Illustrative Target Limit</p>
+    </div>
+
+    <div class="limit-card" onclick="selectLimit('KSh 16,000', this)">
+      <h2>KSh 16,000</h2>
+      <p>Illustrative Target Limit</p>
+    </div>
+
+    <div class="limit-card" onclick="selectLimit('KSh 21,000', this)">
+      <h2>KSh 21,000</h2>
+      <p>Illustrative Target Limit</p>
+    </div>
+
+  </div>
+
+  <div class="selection">
+    <h3>Selected Target Limit</h3>
+    <h2 id="selectedAmount" style="color:#08704d">
+      KSh 10,000
+    </h2>
+    <p>
+      Would you like information about Fuliza eligibility?
+    </p>
+    <a id="contactLink"
+       class="whatsapp"
+       href="https://wa.me/254790000945"
+       target="_blank"
+       rel="noopener">
+       Chat on WhatsApp
+    </a>
+  </div>
+
+  <div class="notice">
+    <strong>Important Information</strong>
+    <p>
+      The amounts displayed are illustrative target amounts,
+      not official Safaricom limit packages. Actual Fuliza
+      limits are determined by Safaricom and its lending
+      partners. Selecting an amount or contacting us does
+      not guarantee approval or a limit increase.
+    </p>
+  </div>
+
+  <div class="info">
+    <h3>How Fuliza Limits Are Assessed</h3>
+    <ol>
+      <li>Initial customer eligibility assessment.</li>
+      <li>M-PESA account usage and transaction history.</li>
+      <li>Credit and repayment history.</li>
+      <li>Review by the relevant lending partners.</li>
+    </ol>
+  </div>
+
+  <div class="info">
+    <h3>Official Assistance</h3>
+    <p>
+      For accurate information about your current Fuliza
+      limit, use official Safaricom customer support
+      channels or the M-PESA menu.
+    </p>
+  </div>
+
+  <div class="info">
+    <h3>Customer Support</h3>
+    <p>WhatsApp: +254 790 000 945</p>
+    <p>We welcome your enquiries about the information
+    provided on this website.</p>
+  </div>
+
+</main>
+
+<a class="floating"
    href="https://wa.me/254790000945"
    target="_blank"
-   rel="noopener noreferrer">
+   rel="noopener">
    WhatsApp Us
 </a>
 
 <footer>
   <strong>FULIZA LIMIT SERVICES</strong>
-  <p class="small">Customer Information Portal</p>
+  <p>Customer Information Portal</p>
+  <p>Independent information website. Not affiliated with Safaricom.</p>
 </footer>
+
+<script>
+function selectLimit(amount, element) {
+  document.querySelectorAll('.limit-card').forEach(card => {
+    card.classList.remove('selected');
+  });
+
+  element.classList.add('selected');
+
+  document.getElementById('selectedAmount').textContent = amount;
+
+  const message = encodeURIComponent(
+    "Hello, I would like official information about Fuliza eligibility and the illustrative target limit of " + amount + "."
+  );
+
+  document.getElementById('contactLink').href =
+    "https://wa.me/254790000945?text=" + message;
+}
+</script>
 
 </body>
 </html>
